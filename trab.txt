@@ -1,15 +1,21 @@
 #include <stdio.h>
 
-#define NUM_ESTADOS 4 // Número total de estados do DFA
-#define NUM_SIMBOLOS_ALFABETO 4 // Número total de símbolos no alfabeto (A, B, C, D)
-
 int main() {
-    int tabelaTransicao[NUM_ESTADOS][NUM_SIMBOLOS_ALFABETO];
+    int num_estados, num_simbolos;
+    
+    // Pedir ao usuário para inserir o número de estados e o número de símbolos no alfabeto
+    printf("Digite o numero de estados: ");
+    scanf("%d", &num_estados);
+    
+    printf("Digite o numero de simbolos no alfabeto: ");
+    scanf("%d", &num_simbolos);
+    
+    int tabelaTransicao[num_estados][num_simbolos];
 
     // Preenchendo a tabela de transição
-    printf("Preencha a tabela de transição:\n");
-    for (int i = 0; i < NUM_ESTADOS; i++) {
-        for (int j = 0; j < NUM_SIMBOLOS_ALFABETO; j++) {
+    printf("\nPreencha a tabela de transição:\n");
+    for (int i = 0; i < num_estados; i++) {
+        for (int j = 0; j < num_simbolos; j++) {
             printf("Digite o próximo estado para Q%d com entrada '%c': ", i+1, 'A'+j);
             scanf("%d", &tabelaTransicao[i][j]);
         }
@@ -17,11 +23,14 @@ int main() {
 
     // Imprimindo a tabela de transição
     printf("\nTabela de Transição:\n");
-    printf("Estado |  A  |  B  |  C  |  D  |\n");
-    printf("--------------------------------\n");
-    for (int i = 0; i < NUM_ESTADOS; i++) {
+    printf("Estado |");
+    for (int j = 0; j < num_simbolos; j++) {
+        printf("  %c  |", 'A'+j);
+    }
+    printf("\n");
+    for (int i = 0; i < num_estados; i++) {
         printf("   Q%d  |", i+1);
-        for (int j = 0; j < NUM_SIMBOLOS_ALFABETO; j++) {
+        for (int j = 0; j < num_simbolos; j++) {
             printf("  %d  |", tabelaTransicao[i][j]);
         }
         printf("\n");
