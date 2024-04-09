@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+#define NUM_ESTADOS 4 // Número total de estados do DFA
+#define NUM_SIMBOLOS_ALFABETO 4 // Número total de símbolos no alfabeto (A, B, C, D)
+
+int main() {
+    int tabelaTransicao[NUM_ESTADOS][NUM_SIMBOLOS_ALFABETO];
+
+    // Preenchendo a tabela de transição
+    printf("Preencha a tabela de transição:\n");
+    for (int i = 0; i < NUM_ESTADOS; i++) {
+        for (int j = 0; j < NUM_SIMBOLOS_ALFABETO; j++) {
+            printf("Digite o próximo estado para Q%d com entrada '%c': ", i+1, 'A'+j);
+            scanf("%d", &tabelaTransicao[i][j]);
+        }
+    }
+
+    // Imprimindo a tabela de transição
+    printf("\nTabela de Transição:\n");
+    printf("Estado |  A  |  B  |  C  |  D  |\n");
+    printf("--------------------------------\n");
+    for (int i = 0; i < NUM_ESTADOS; i++) {
+        printf("   Q%d  |", i+1);
+        for (int j = 0; j < NUM_SIMBOLOS_ALFABETO; j++) {
+            printf("  %d  |", tabelaTransicao[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
