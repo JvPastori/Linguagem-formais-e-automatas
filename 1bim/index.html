@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Palavras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Verificador de Palavras</h1>
+    <form id="form-afd">
+        <label for="estado-inicial">Estado Inicial (q1):</label>
+        <input type="number" id="estado-inicial" required>
+        
+        <label for="qtd-estados">Quantidade de Estados:</label>
+        <input type="number" id="qtd-estados" required>
+
+        <label for="qtd-estados-finais">Quantidade de Estados Finais:</label>
+        <input type="number" id="qtd-estados-finais" required>
+
+        <label for="estados-finais">Estados Finais (separados por vírgula):</label>
+        <input type="text" id="estados-finais" required>
+
+        <label for="qtd-simbolos">Quantidade de Símbolos do Alfabeto:</label>
+        <input type="number" id="qtd-simbolos" required>
+
+        <label for="simbolos-alfabeto">Símbolos do Alfabeto (sem espaços, separados por vírgula):</label>
+        <input type="text" id="simbolos-alfabeto" required>
+
+        <button type="button" onclick="preencherTabelaTransicao()">Preencher Tabela de Transição</button>
+    </form>
+
+    <div id="tabela-transicao"></div>
+
+    <form id="form-verificar">
+        <label for="palavra">Palavra a ser Verificada:</label>
+        <input type="text" id="palavra" required>
+        <button type="button" onclick="verificarPalavra()">Verificar</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
