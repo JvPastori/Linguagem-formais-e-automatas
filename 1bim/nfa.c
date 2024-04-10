@@ -14,7 +14,7 @@ bool verificar_palavra(int estado_inicial, int estados_finais[], int qtd_estados
             }
         }
         if (indice_simbolo == -1) {
-            printf("Palavra contém símbolo inválido.\n");
+            printf("Palavra contem símbolo invalido.\n");
             return false;
         }
 
@@ -30,12 +30,22 @@ bool verificar_palavra(int estado_inicial, int estados_finais[], int qtd_estados
     return false;
 }
  
+ 
 int main() {
     int estado_inicial, qtd_estados, qtd_estados_finais, qtd_simbolos;
     char alfabeto[10];
     int estados_finais[100], tabela_transicao[100][10];
 
-    // Pedir informações ao usuário
+
+    printf("\n------Linguagens Formais, Automatos e Computabilidade------\n");
+    printf("\nAluno:Joao Vitor Pastori Leme Batista\n");
+
+
+
+    printf("\n-------Automato Finito Deterministico-------\n");
+
+    
+    // Pedir informacoes ao usuario
     printf("Digite o estado inicial (q1): ");
     scanf("%d", &estado_inicial);
 
@@ -45,30 +55,30 @@ int main() {
     printf("Digite a quantidade de estados finais: ");
     scanf("%d", &qtd_estados_finais);
 
-    printf("Digite os estados finais:\n");
+    printf("Digite os estados finais:");
     for (int i = 0; i < qtd_estados_finais; i++) {
         scanf("%d", &estados_finais[i]);
     }
 
-    printf("Digite a quantidade de símbolos do alfabeto: ");
+    printf("Digite a quantidade de simbolos do alfabeto: ");
     scanf("%d", &qtd_simbolos);
 
-    printf("Digite os símbolos do alfabeto (sem espaços): ");
+    printf("Digite os simbolos do alfabeto (sem espaços): ");
     for (int i = 0; i < qtd_simbolos; i++) {
         scanf(" %c", &alfabeto[i]); 
     }
 
-    // Preencher a tabela de transição
-    printf("Preencha a tabela de transição (estado x símbolo):\n");
+    // Preencher a tabela de transicao
+    printf("Preencha a tabela de transicao (estado x símbolo):\n");
     for (int i = 0; i < qtd_estados; i++) {
         for (int j = 0; j < qtd_simbolos; j++) {
-            printf("Delta(q%d, %c): ", i + 1, alfabeto[j]);
+            printf("(Q%d, %c): ", i + 1, alfabeto[j]);
             scanf("%d", &tabela_transicao[i][j]);
         }
     }
 
-    // Imprimir a tabela de transição
-    printf("\nTabela de Transição:\n");
+    // Imprimir a tabela de transicao
+    printf("\n======Tabela de Transicao:======\n");
     printf("Estado   ");
     for (int i = 0; i < qtd_simbolos; i++) {
         printf("| %c ", alfabeto[i]);
@@ -77,7 +87,7 @@ int main() {
     for (int i = 0; i < qtd_estados; i++) {
         printf("q%d        ", i + 1);
         for (int j = 0; j < qtd_simbolos; j++) {
-            printf("| q%d ", tabela_transicao[i][j]);
+            printf("| %d ", tabela_transicao[i][j]);
         }
         printf("\n");
     }
@@ -95,6 +105,3 @@ int main() {
 
     return 0;
 }
-
-
----------------------------->  ------------------------------------------- > b ------------------------------------------------> c 
